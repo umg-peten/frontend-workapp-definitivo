@@ -8,6 +8,8 @@ function myTimer() {
 $(document).ready(function () {
 
     DashboardCharts();
+    ClockingChart();
+    
     /* Graficos*/
     function DashboardCharts() {
         var ctx1 = document.getElementById('chart1').getContext('2d');

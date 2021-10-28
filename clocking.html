@@ -46,7 +46,7 @@
                                     class="fas fa-home"></i> Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/employees.html" class="nav-link text-white text-left active" id="employees"><i
+                            <a href="/employees.html" class="nav-link text-white text-left " id="employees"><i
                                     class="fas fa-user-tie"></i>
                                 Empleados</a>
                         </li>
@@ -55,7 +55,7 @@
                                     class="fas fa-network-wired"></i> Departamentos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/clocking.html" class="nav-link text-white text-left " id="clocking"><i
+                            <a href="/clocking.html" class="nav-link text-white text-left active" id="clocking"><i
                                     class="fas fa-calendar"></i>
                                 Asistencia</a>
                         </li>
@@ -109,35 +109,43 @@
                 </div>
                 <div class="row" style="padding-right: 1.5em;" id="dashboard-content">
                     <!-- Contenido aqui -->
-                    <div class="col-12 align-items-start buttons mb-2">
-                        <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modal"><i class="fas fa-plus"></i> Agregar empleado</button>                    </div>
-                    <div class="col-12">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                    aria-selected="true">Lista de Empleados</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <table class="table table-sm scroll">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">Codigo de Empleado</th>
-                                        <th scope="col">Nombres</th>
-                                        <th scope="col">Apellidos</th>
-                                        <th scope="col">Departamento</th>
-                                        <th scope="col">Puesto</th>
-                                        <th scope="col">Accion</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                  </table>
+                    <div class="col-12 vh-50">
+                        <form>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <div class="mb-3">
+                                        <label class="form-label">Seleccion de empleado</label>
+                                        <select class="form-select" id="country" name="country">
+                                            <option value="1">Panfilo Perez</option>
+                                            <option value="2">Axel Aguilar</option>
+                                            <option value="3">Pedro Avelar</option>
+                                        </select>
+                                        <div class="form-text">Empleado</div>
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <div class="mb-3">
+                                        <label class="form-label">Intervalo de Fecha</label>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="date" class="form-control" id="startDate">
+                                                <div class="form-text">Fecha de Inicio</div>
+                                            </div>
+                                            <div class="col">
+                                                <input type="date" class="form-control" id="endDate">
+                                                <div class="form-text">Fecha de Finalización</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-text">La fecha de asistencia que desea consultar</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">a big
+                        </form>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-start">Asistencia</h5>
                             </div>
+                            <canvas id="chart3" class="p-3"></canvas>
                         </div>
                     </div>
                 </div>

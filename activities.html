@@ -42,11 +42,11 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto text-start" id="sidebar-menu">
                         <li class="nav-item">
-                            <a href="/dashboard.html" class="nav-link text-white text-left " id="dashboard"><i
+                            <a href="/dashboard.html" class="nav-link text-white text-left" id="dashboard"><i
                                     class="fas fa-home"></i> Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/employees.html" class="nav-link text-white text-left active" id="employees"><i
+                            <a href="/employees.html" class="nav-link text-white text-left " id="employees"><i
                                     class="fas fa-user-tie"></i>
                                 Empleados</a>
                         </li>
@@ -60,7 +60,7 @@
                                 Asistencia</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/activities.html" class="nav-link text-white text-left" id="activities"><i
+                            <a href="/activities.html" class="nav-link text-white text-left active" id="activities"><i
                                     class="fas fa-clipboard-check"></i>
                                 Actividades</a>
                         </li>
@@ -97,7 +97,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
                                 aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="#profile"><i class="fas fa-user"></i> Perfil</a></li>
+                                <li><a class="dropdown-item" href="/profile.html"><i class="fas fa-user"></i> Perfil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -110,29 +110,45 @@
                 <div class="row" style="padding-right: 1.5em;" id="dashboard-content">
                     <!-- Contenido aqui -->
                     <div class="col-12 align-items-start buttons mb-2">
-                        <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modal"><i class="fas fa-plus"></i> Agregar empleado</button>                    </div>
+                        <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modal"><i class="fas fa-plus"></i> Agregar actividad</button>
+                    </div>
                     <div class="col-12">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                                     data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                    aria-selected="true">Lista de Empleados</button>
+                                    aria-selected="true">Lista de Actividades</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link disabled" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                    type="button" role="tab" aria-controls="profile"
+                                    aria-selected="false">Agregar Actividad</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <table class="table table-sm scroll">
+                                <table class="table table-sm">
                                     <thead>
                                       <tr>
-                                        <th scope="col">Codigo de Empleado</th>
-                                        <th scope="col">Nombres</th>
-                                        <th scope="col">Apellidos</th>
-                                        <th scope="col">Departamento</th>
-                                        <th scope="col">Puesto</th>
-                                        <th scope="col">Accion</th>
+                                        <th scope="col">Codigo de Actividad</th>
+                                        <th scope="col">Nombre de Actividad</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Urgencia</th>
+                                        <th scope="col">Acción</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+                                      <tr>
+                                        <th scope="row">00001</th>
+                                        <td>Prueba</td>
+                                        <td>Prueba</td>
+                                        <td>Alta</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary"><i class="fas fa-eye"></i> Ver</button>
+                                            <button type="button" class="btn btn-warning"><i class="fas fa-pen"></i> Modificar</button>
+                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
+                                        </td>
+                                      </tr>
                                     </tbody>
                                   </table>
                             </div>
@@ -141,87 +157,36 @@
                         </div>
                     </div>
                 </div>
-                <!--- Modal AGREGAR aqui --->
+                <!--- Modal aqui --->
                 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Agregar empleado</h5>
+                                <h5 class="modal-title">Agregar actividad</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="text-start" id="employeeData">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label">Nombre del empleado</label>
-                                                <input type="text" class="form-control" id="name">
-                                                <div class="form-text">El nombre del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Apellido del empleado</label>
-                                                <input type="text" class="form-control" id="lastName">
-                                                <div class="form-text">El apellido del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Fecha de nacimiento del empleado</label>
-                                                <input type="date" class="form-control" id="birthDate">
-                                                <div class="form-text">La fecha de nacimiento del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">DPI del empleado</label>
-                                                <input type="number" class="form-control" id="dpi">
-                                                <div class="form-text">El DPI del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Salario del empleado (Q.)</label>
-                                                <input type="number" class="form-control" id="salary">
-                                                <div class="form-text">El salario del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Gastos Personles (Q.)</label>
-                                                <input type="number" class="form-control" id="personalExpenses">
-                                                <div class="form-text">Los Gastos Personles.</div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label">Bonificación (Q.)</label>
-                                                <input type="number" class="form-control" id="bonification">
-                                                <div class="form-text">La Bonificación.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Numero de teléfono del empleado </label>
-                                                <input type="number" class="form-control" id="phoneNumber">
-                                                <div class="form-text">El Numero de teléfono del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Sexo del empleado</label>
-                                                <select class="form-select" id="sex">
-                                                    <option value="0">Hombre</option>
-                                                    <option value="1">Mujer</option>
-                                                </select>
-                                                <div class="form-text">El Sexo del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Departamento del empleado </label>
-                                                <select class="form-select" id="department" name="department">
-                                                </select>
-                                                <div class="form-text">El departamento del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Posición del empleado </label>
-                                                <select class="form-select" id="position" name="position">
-                                                </select>
-                                                <div class="form-text">La Posición del empleado.</div>
-                                            </div>
-                                        </div>
+                                <form class="text-start">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre de la actividad</label>
+                                        <input type="text" class="form-control" id="">
+                                        <div class="form-text">El nombre de la actividad.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Descripción de la actividad</label>
+                                        <input type="text" class="form-control" id="">
+                                        <div class="form-text">Descripción del departamento.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fecha de expiración de la actividad</label>
+                                        <input type="date" class="form-control">
+                                        <div class="form-text">La fecha de expiración de la actividad.</div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-success" id="addEmployee">Guardar</button>
+                                <button type="button" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
                     </div>
