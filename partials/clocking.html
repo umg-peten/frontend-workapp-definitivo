@@ -1,0 +1,39 @@
+<div class="col-12 vh-50">
+    <form>
+        <div class="row">
+            <div class="col form-group">
+                <div class="mb-3">
+                    <label class="form-label">Seleccion de empleado</label>
+                    <select class="form-select" id="country" name="country">
+                        <option value="1">Panfilo Perez</option>
+                        <option value="2">Axel Aguilar</option>
+                        <option value="3">Pedro Avelar</option>
+                    </select>
+                    <div class="form-text">Empleado</div>
+                </div>
+            </div>
+            <div class="col form-group">
+                <div class="mb-3">
+                    <label class="form-label">Intervalo de Fecha</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="date" class="form-control" id="startDate">
+                            <div class="form-text">Fecha de Inicio</div>
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" id="endDate">
+                            <div class="form-text">Fecha de Finalización</div>
+                        </div>
+                    </div>
+                    <div class="form-text">La fecha de asistencia que desea consultar</div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-start">Asistencia</h5>
+        </div>
+        <canvas id="chart3" class="p-3"></canvas>
+    </div>
+</div>

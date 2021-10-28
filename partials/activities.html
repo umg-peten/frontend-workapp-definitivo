@@ -1,0 +1,47 @@
+<div class="col-12 align-items-start buttons mb-2">
+    <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modal"><i class="fas fa-plus"></i> Agregar actividad</button>
+</div>
+<div class="col-12">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                aria-selected="true">Lista de Actividades</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link disabled" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                type="button" role="tab" aria-controls="profile"
+                aria-selected="false">Agregar Actividad</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Codigo de Actividad</th>
+                    <th scope="col">Nombre de Actividad</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Urgencia</th>
+                    <th scope="col">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">00001</th>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>Alta</td>
+                    <td>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-eye"></i> Ver</button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-pen"></i> Modificar</button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">a big
+        </div>
+    </div>
+</div>

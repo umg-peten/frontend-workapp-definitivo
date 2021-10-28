@@ -1,0 +1,79 @@
+<div class="col-12 align-items-start buttons mb-2">
+  <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modal"><i
+      class="fas fa-plus"></i> Agregar departamento</button>
+  <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal" data-bs-target="#modalPuesto"><i
+      class="fas fa-plus"></i> Agregar puesto</button>
+</div>
+
+
+<!--Modal Puesto-->
+<div class="modal fade" id="modalPuesto" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Puesto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="text-start">
+          <div class="mb-3">
+            <label class="form-label">Departamento del empleado </label>
+            <select class="form-select" id="position" name="position">
+              <option value="1">Posición</option>
+            </select>
+            <div class="form-text">El departamento del empleado.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nombre del puesto</label>
+            <input type="text" class="form-control" id="">
+            <div class="form-text">El nombre del puesto.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripcion del puesto</label>
+            <input type="text" class="form-control" id="">
+            <div class="form-text">El Descripcion del puesto.</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Final Modal Puesto-->
+
+
+<div class="col-12">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+        aria-controls="home" aria-selected="true">Lista de Departamentos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link disabled" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+        role="tab" aria-controls="profile" aria-selected="false">Agregar Departamento</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="DepartmentTable">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Codigo de Departamento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad de empleados</th>
+            <th scope="col">Cantidad de puestos</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">a big
+    </div>
+  </div>
+</div>

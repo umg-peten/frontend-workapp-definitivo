@@ -1,0 +1,46 @@
+<div class="col-12">
+    <form class="text-start">
+        <div class="row">
+            <div class="col form-group">
+                <div class="mb-3">
+                    <label class="form-label">Tipo de reporte</label>
+                    <select class="form-select" id="country" name="country">
+                        <option value="1">Reporte de información de empleados</option>
+                        <option value="2">Reporte de sueldos de empleados</option>
+                        <option value="3">Reporte de asistencia de empleados</option>
+                        <option value="4">Reporte de actividades</option>
+                    </select>
+                    <div class="form-text">El tipo de reporte que desea generar</div>
+                </div>
+            </div>
+            <div class="col form-group">
+                <div class="mb-3">
+                    <label class="form-label">Intervalo de Fecha</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="date" class="form-control" id="startDate">
+                            <div class="form-text">Fecha de Inicio</div>
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" id="endDate">
+                            <div class="form-text">Fecha de Finalización</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label class="form-label">Formato del reporte</label>
+                <select class="form-select" id="country" name="country">
+                    <option value="1">PDF (.pdf)</option>
+                    <option value="2">Excel (.xlsx)</option>
+                    <option value="3">CSV (.csv)</option>
+                    <option value="4">JSON (.json)</option>
+                </select>
+                <div class="form-text">El formato del reporte a generar</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Generar reporte</button>
+    </form>
+</div>

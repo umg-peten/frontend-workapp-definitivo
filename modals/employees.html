@@ -1,0 +1,126 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Agregar empleado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="text-start" id="employeeData">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del empleado</label>
+                            <input type="text" class="form-control" id="name">
+                            <div class="form-text">El nombre del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Apellido del empleado</label>
+                            <input type="text" class="form-control" id="lastName">
+                            <div class="form-text">El apellido del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha de nacimiento del empleado</label>
+                            <input type="date" class="form-control" id="birthDate">
+                            <div class="form-text">La fecha de nacimiento del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">DPI del empleado</label>
+                            <input type="number" class="form-control" id="dpi">
+                            <div class="form-text">El DPI del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Salario del empleado (Q.)</label>
+                            <input type="number" class="form-control" id="salary">
+                            <div class="form-text">El salario del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gastos Personles (Q.)</label>
+                            <input type="number" class="form-control" id="personalExpenses">
+                            <div class="form-text">Los Gastos Personles.</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Bonificación (Q.)</label>
+                            <input type="number" class="form-control" id="bonification">
+                            <div class="form-text">La Bonificación.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Numero de teléfono del empleado </label>
+                            <input type="number" class="form-control" id="phoneNumber">
+                            <div class="form-text">El Numero de teléfono del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sexo del empleado</label>
+                            <select class="form-select" id="sex">
+                                <option value="0">Hombre</option>
+                                <option value="1">Mujer</option>
+                            </select>
+                            <div class="form-text">El Sexo del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Departamento del empleado </label>
+                            <select class="form-select" id="department" name="department">
+                            </select>
+                            <div class="form-text">El departamento del empleado.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Posición del empleado </label>
+                            <select class="form-select" id="position" name="position">
+                            </select>
+                            <div class="form-text">La Posición del empleado.</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="addEmployee">Guardar</button>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Empleado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="text-start" id="employeeData">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del empleado</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Apellido del empleado</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label">Numero de teléfono del empleado </label>
+                            <input type="number" class="form-control" id="phoneNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sexo del empleado</label>
+                            <select class="form-select" id="sex">
+                                <option value="0">Hombre</option>
+                                <option value="1">Mujer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+-->
