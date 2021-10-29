@@ -160,6 +160,49 @@ function modifyDepartmentView(departmentRow) {
       }
     }
   });
+}
 
+function modifyDepartmentSend(departmentRow){
 
+  idDepartment = parseInt(departmentRow.parent().parent().children().eq(0).html());
+
+  if (!$("#modifyName").val()
+    || !$("#modifyDescription").val())
+    {
+    console.log("empty!");
+  } else {
+    data = {
+      name: $("#modifyName").val(),
+      description: $("#modifyDescription").val()
+    }
+
+    jsonData = JSON.stringify(data, null, 2);
+
+    console.log(jsonData);
+
+    $.ajax({
+      url: uri + 'AddDepartment',
+      method: "POST",
+      data: jsonData,
+      headers: {
+        "Authorization": `Bearer ${token_sesion}`,
+        'Content-Type': 'application/json'
+      },
+      dataType: 'json',
+      cache: false,
+      beforeSend: function () {
+        $('.ajax-loader').show();
+      },
+      complete: function () {
+        $('.ajax-loader').hide();
+      },
+      success: function (response) {
+        alert("FANTASTICO!");
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    });
+
+  }
 }
