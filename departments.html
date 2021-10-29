@@ -117,7 +117,7 @@
                             data-bs-target="#modalPuesto"><i class="fas fa-plus"></i> Agregar puesto</button>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 scroll">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
@@ -185,6 +185,79 @@
 
                 <!-- Modal AGREGAR DEPARTAMENTO aqui -->
 
+                <!--- Modal VER aqui --->
+                <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Ver Departamento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="text-start" id="DepartmentData">
+                                    <fieldset disabled>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Nombre del Departamento</label>
+                                                    <input type="text" class="form-control" id="viewName">
+                                                    <div class="form-text">El nombre del departamento.</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Descripcion</label>
+                                                    <input type="text" class="form-control" id="viewDescription">
+                                                    <div class="form-text">Descripcion del departamento.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--- Modal Modificar aqui --->
+                <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modificar Departamento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="text-start" id="DepartmentData">
+                                    <fieldset enable>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Nombre del Departamento</label>
+                                                    <input type="text" class="form-control" id="modifyName">
+                                                    <div class="form-text">El nombre del departamento.</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Descripcion</label>
+                                                    <input type="text" class="form-control" id="modifyDescription">
+                                                    <div class="form-text">Descripcion del departamento.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success" id="modifyDepartment">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!--Modal Puesto-->
                 <div class="modal fade" id="modalPuesto" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -245,7 +318,7 @@
         integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/departments.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
 
