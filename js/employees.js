@@ -242,8 +242,8 @@ function modifyEmployee(employeeRow) {
       $("#modifyPosition").val(response.data.position.name);
       $("#modifyDepartment").val(response.data.position.department.name);
       $("#modifySalary").val(response.data.salary.salary);
-      $("#modifyPersonalExpenses").val(response.data.personalExpenses);
-      $("#modifyBonification").val(response.data.bonification);
+      $("#modifyPersonalExpenses").val(response.data.salary.personalExpenses);
+      $("#modifyBonification").val(response.data.salary.personalExpenses);
     },
     error: function (response) {
       if (response.status == 404) {
@@ -286,8 +286,8 @@ function viewEmployee(employeeRow) {
       $("#viewPosition").val(response.data.position.name);
       $("#viewDepartment").val(response.data.position.department.name);
       $("#viewSalary").val(response.data.salary.salary);
-      $("#viewPersonalExpenses").val(response.data.personalExpenses);
-      $("#viewBonification").val(response.data.bonification);
+      $("#viewPersonalExpenses").val(response.data.salary.personalExpenses);
+      $("#viewBonification").val(response.data.salary.bonification);
 
     },
     error: function (response) {
@@ -393,20 +393,6 @@ $('#modifyDepartment').change(function () {
     }
   });
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function formatDate(date) {
