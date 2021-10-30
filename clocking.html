@@ -109,16 +109,17 @@
                 </div>
                 <div class="row" style="padding-right: 1.5em;" id="dashboard-content">
                     <!-- Contenido aqui -->
+                    <div class="col-12 align-items-start buttons mb-2">
+                        <button type="button" class="btn btn-success align-self-end" data-bs-toggle="modal"
+                            data-bs-target="#modal"><i class="fas fa-plus"></i> Marcar asistencia de empleado</button>
+                    </div>
                     <div class="col-12 vh-50">
                         <form>
                             <div class="row">
                                 <div class="col form-group">
                                     <div class="mb-3">
                                         <label class="form-label">Seleccion de empleado</label>
-                                        <select class="form-select" id="country" name="country">
-                                            <option value="1">Panfilo Perez</option>
-                                            <option value="2">Axel Aguilar</option>
-                                            <option value="3">Pedro Avelar</option>
+                                        <select class="form-select employeeList" id="employeeList" name="employeeList">
                                         </select>
                                         <div class="form-text">Empleado</div>
                                     </div>
@@ -154,74 +155,62 @@
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Agregar empleado</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title">Agregar asistencia de empleado</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form class="text-start" id="employeeData">
                                     <div class="row">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label class="form-label">Nombre del empleado</label>
-                                                <input type="text" class="form-control" id="name">
-                                                <div class="form-text">El nombre del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Apellido del empleado</label>
-                                                <input type="text" class="form-control" id="lastName">
-                                                <div class="form-text">El apellido del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Fecha de nacimiento del empleado</label>
-                                                <input type="date" class="form-control" id="birthDate">
-                                                <div class="form-text">La fecha de nacimiento del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">DPI del empleado</label>
-                                                <input type="number" class="form-control" id="dpi">
-                                                <div class="form-text">El DPI del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Salario del empleado (Q.)</label>
-                                                <input type="number" class="form-control" id="salary">
-                                                <div class="form-text">El salario del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Gastos Personles (Q.)</label>
-                                                <input type="number" class="form-control" id="personalExpenses">
-                                                <div class="form-text">Los Gastos Personles.</div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label">Bonificación (Q.)</label>
-                                                <input type="number" class="form-control" id="bonification">
-                                                <div class="form-text">La Bonificación.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Numero de teléfono del empleado </label>
-                                                <input type="number" class="form-control" id="phoneNumber">
-                                                <div class="form-text">El Numero de teléfono del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Sexo del empleado</label>
-                                                <select class="form-select" id="sex">
-                                                    <option value="0">Hombre</option>
-                                                    <option value="1">Mujer</option>
+                                                <label class="form-label">Seleccion de empleado</label>
+                                                <select class="form-select employeeList" name="employeeList">
                                                 </select>
-                                                <div class="form-text">El Sexo del empleado.</div>
+                                                <div class="form-text">Empleado</div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Departamento del empleado </label>
-                                                <select class="form-select" id="department" name="department">
-                                                </select>
-                                                <div class="form-text">El departamento del empleado.</div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Posición del empleado </label>
-                                                <select class="form-select" id="position" name="position">
-                                                </select>
-                                                <div class="form-text">La Posición del empleado.</div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="mb-3">
+                                                                <div class="btn-group btn-group-toggle"
+                                                                    data-toggle="buttons">
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="options" id="option1"
+                                                                            autocomplete="off" checked> Entrada
+                                                                    </label>
+                                                                    <label class="btn btn-success">
+                                                                        <input type="radio" name="options" id="option2"
+                                                                            autocomplete="off"> Salida
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-text">Entrada o salida?</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="mb-3">
+                                                                <div class="btn-group btn-group-toggle"
+                                                                    data-toggle="buttons">
+                                                                    <label class="btn btn-primary">
+                                                                        <input type="radio" name="options" id="option1"
+                                                                            autocomplete="off" checked> Hora actual
+                                                                    </label>
+                                                                    <label class="btn btn-success">
+                                                                        <input type="radio" name="options" id="option2"
+                                                                            autocomplete="off"> Hora manual
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-text">Entrada o salida?</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col">
+                                                    <input type="date" class="form-control" id="startDate">
+                                                    <div class="form-text">Fecha de Inicio</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +218,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-success" id="addEmployee">Guardar</button>
+                                <button type="button" class="btn btn-success" id="addEmployee">Ingresar</button>
                             </div>
                         </div>
                     </div>
@@ -243,6 +232,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+    <!-- Clocking -->
+    <script src="js/clocking.js"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.js"></script>
