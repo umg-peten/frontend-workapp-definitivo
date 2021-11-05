@@ -47,6 +47,7 @@ $.ajax({
         if (response.status == 404) {
           $('#position').html("");
           $('#position').prop("disabled", true);
+          $('#position').append('<option value=""> No hay departamentos</option>');
         }
       }
     });
@@ -77,6 +78,7 @@ $('#department').change(function () {
         $('#position').prop("disabled", false);
       }
       for (var i = 0; i < response.data.length; i++) {
+        $('#position').html("");
         $('#position').append('<option value=' + response.data[i].id + '>' + response.data[i].name + '</option>');
       }
     },
@@ -84,6 +86,7 @@ $('#department').change(function () {
       if (response.status == 404) {
         $('#position').html("");
         $('#position').prop("disabled", true);
+        $('#position').append('<option value=""> No hay departamentos</option>');
       }
     }
   });
@@ -146,25 +149,26 @@ $.ajax({
   }
 });
 
-/* AGREGAR EMPLEADOS */
+/* AGREGAR EMPLEADOS 
+Tu madre Ernesto, deja de revisar mi codigo put* .l.
+*/
+
 
 $("#addEmployee").click(function () {
-  /* No es la solucion mas elegante, podria iterarse sobre los campos del form (por hacer)*/
-  if (!$("#name").val()
-    || !$("#lastName").val()
-    || !$("#name").val()
-    || !$("#lastName").val()
-    || !$("#birthDate").val()
-    || !$("#dpi").val()
-    || !$("#salary").val()
-    || !$("#personalExpenses").val()
-    || !$("#bonification").val()
-    || !$("#phoneNumber").val()
-    || !$("#sex").val()
-    || !$("#department").val()
-    || !$("#position").val()) {
-    console.log("empty!");
-  } else {
+
+  counter = 0;
+
+  $("#employeeAddData input, #employeeAddData :selected").each(function () {
+    if ($(this).val() === "" || $(this).val() == null) {
+      console.log("Este campo esta vacio " + $(this));
+    } else {
+      console.log("Este campo esta lleno " + $(this).val());
+      counter++;
+    }
+  });
+
+  if (counter >= $("#employeeAddData input, #employeeAddData :selected").length) {
+    console.log("Realizar consulta");
     data = {
       name: $("#name").val(),
       lastName: $("#lastName").val(),
@@ -177,11 +181,11 @@ $("#addEmployee").click(function () {
       personalExpenses: parseInt($("#personalExpenses").val()),
       bonification: parseInt($("#bonification").val())
     }
-
+  
     jsonData = JSON.stringify(data, null, 2);
-
+  
     console.log(jsonData);
-
+  
     $.ajax({
       url: uri + 'add',
       method: "POST",
@@ -200,16 +204,24 @@ $("#addEmployee").click(function () {
       },
       success: function (response) {
         alert("FANTASTICO!");
+        bootstrap.Modal.getInstance(modal).hide();
       },
       error: function (response) {
         console.log(response);
         // if(response.status == 401) {
-        //   window.location.replace("/login.html");
+        //   window.location.replace("/login.html"); ///REEMPLAZAR PVTOS
         // }
+
+        if(response.status == 400) {
+          alert("Error!, revise sus datos!");
+        }
       }
     });
-
+  } else {
+    console.log("Faltan campos!");
+    alert("Faltan campos");
   }
+  
 });
 
 
@@ -302,11 +314,35 @@ function viewEmployee(employeeRow) {
 /* ELIMINAR EMPLEADO */
 
 function deleteEmployee(employeeRow) {
-  console.log(employeeRow.closest('tr'));
-  employeeRow.closest('tr').remove();
+
+  idEmployee = parseInt(employeeRow.parent().parent().children().eq(0).html());
+
+  $.ajax({
+    url: "http://workapp.somee.com/api/employee/" + idEmployee,
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token_sesion}`
+    },
+    cache: false,
+    beforeSend: function () {
+      $('.ajax-loader').show();
+    },
+    complete: function () {
+      $('.ajax-loader').hide();
+    },
+    success: function (response) {
+      console.log(employeeRow.closest('tr'));
+      employeeRow.closest('tr').remove();
+    },
+    error: function (response) {
+      console.log("Reenviar al login");
+      // if(response.status == 401) {
+      //   window.location.replace("/login.html");
+      // }
+    }
+  });
+
 }
-
-
 
 /* OBTENER DEPARTAMENTOS Y PUESTOS (MODIFICAR) */
 
@@ -397,14 +433,14 @@ $('#modifyDepartment').change(function () {
 
 function formatDate(date) {
   var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
 
-  if (month.length < 2) 
-      month = '0' + month;
-  if (day.length < 2) 
-      day = '0' + day;
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
 
   return [year, month, day].join('-');
 }

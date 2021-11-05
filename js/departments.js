@@ -1,3 +1,5 @@
+/* OBTENER LA URI Y TOKEN */
+
 uri = "http://workapp.somee.com/api/Department/";
 token_sesion = sessionStorage.getItem("token");
 
@@ -10,12 +12,14 @@ $.ajax({
   },
   cache: false,
   beforeSend: function () {
+    $('.ajax-loader').show();
   },
   complete: function () {
+    $('.ajax-loader').hide();
   },
   success: function (response) {
     for (var i = 0; i < response.data.length; i++) {
-      $('table tbody').append('<tr>' +
+      $('#departmentsTable').append('<tr>' +
         '<td>' + response.data[i].id + '</td>' +
         '<td>' + response.data[i].name + '</td>' +
         '<td>' + response.data[i].description + '</td>' +
@@ -56,8 +60,7 @@ $.ajax({
 /* AGREGAR Departamento */
 $("#DepartmentSave").click(function () {
   if (!$("#DepartmentName").val()
-    || !$("#DepartmentDescription").val())
-    {
+    || !$("#DepartmentDescription").val()) {
     console.log("empty!");
   } else {
     data = {
@@ -105,7 +108,7 @@ function viewDepartment(departmentRow) {
   idDepartment = parseInt(departmentRow.parent().parent().children().eq(0).html());
 
   $.ajax({
-    url: "http://workapp.somee.com/api/Department/" + idDepartment,
+    url: uri + idDepartment,
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token_sesion}`
@@ -121,6 +124,40 @@ function viewDepartment(departmentRow) {
       $("#viewName").val(response.data.name);
       $("#viewDescription").val(response.data.description);
 
+
+      /* OBTENER PUESTOS DEL DEPARTAMENTO  */
+      $.ajax({
+        url: "http://workapp.somee.com/api/Position/" + idDepartment,
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token_sesion}`
+        },
+        cache: false,
+        beforeSend: function () {
+          //$('.ajax-loader').show();
+        },
+        complete: function () {
+          //$('.ajax-loader').hide();
+        },
+        success: function (response) {
+          $('#positions').html("");
+          for (var i = 0; i < response.data.length; i++) {
+            
+            $('#positions').append('<tr>' +
+              '<td>' + response.data[i].id + '</td>' +
+              '<td>' + response.data[i].name + '</td>' +
+              '<td>' + response.data[i].dsd + '</td>' +
+              '<td><button type="button" class="btn btn-warning modifyDepartmentView" data-bs-toggle="modal" data-bs-target="#modifyModal"><i class="fas fa-pen"></i> Modificar</button>' +
+              '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal"><i class="fas fa-trash"></i> Eliminar</button><td>' +
+              '</tr>');
+          }
+        },
+        error: function (response) {
+          if (response.status == 404) {
+            $('#positions').html("No hay posiciones");
+          }
+        }
+      });
     },
     error: function (response) {
       if (response.status == 404) {
@@ -137,7 +174,7 @@ function modifyDepartmentView(departmentRow) {
   idDepartment = parseInt(departmentRow.parent().parent().children().eq(0).html());
 
   $.ajax({
-    url: "http://workapp.somee.com/api/Department/" + idDepartment,
+    url: uri + idDepartment,
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token_sesion}`
@@ -162,13 +199,12 @@ function modifyDepartmentView(departmentRow) {
   });
 }
 
-function modifyDepartmentSend(departmentRow){
+function modifyDepartmentSend(departmentRow) {
 
   idDepartment = parseInt(departmentRow.parent().parent().children().eq(0).html());
 
   if (!$("#modifyName").val()
-    || !$("#modifyDescription").val())
-    {
+    || !$("#modifyDescription").val()) {
     console.log("empty!");
   } else {
     data = {
@@ -206,3 +242,38 @@ function modifyDepartmentSend(departmentRow){
 
   }
 }
+
+/* OBTENER DEPARTAMENTOS PARA AGREGAR PUESTOS */
+$.ajax({
+  url: uri + 'GetAll',
+  method: "GET",
+  headers: {
+    "Authorization": `Bearer ${token_sesion}`
+  },
+  cache: false,
+  beforeSend: function () {
+    //$('.ajax-loader').show();
+  },
+  complete: function () {
+    //$('.ajax-loader').hide();
+  },
+  success: function (response) {
+    if (response.status == 200) {
+      $('#department').prop("disabled", false);
+      console.log("xdfxdxd");
+      data = response;
+    }
+    for (var i = 0; i < response.data.length; i++) {
+      $('#department').append('<option value=' + response.data[i].id + '>' + response.data[i].name + '</option>');
+      console.log(i);
+    }
+  },
+  error: function (response) {
+    if (response.status == 404) {
+      $('#department').html("");
+      $('#department').prop("disabled", true);
+      $('#department').append('<option value=""> No hay departamentos</option>');
+    }
+  }
+});
+

@@ -142,7 +142,7 @@
                                             <th scope="col">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="departmentsTable">
                                     </tbody>
                                 </table>
                             </div>
@@ -213,6 +213,21 @@
                                         </div>
                                     </fieldset>
                                 </form>
+                                <div class="row">
+                                    <table class="table table-sm">
+                                        <h5>Posiciones</h5>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Codigo</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Numero de trabajadores</th>
+                                                <th scope="col">Accion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="positions">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -220,7 +235,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--- Modal Modificar aqui --->
                 <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
@@ -259,8 +274,8 @@
                 </div>
 
                 <!--Modal Puesto-->
-                <div class="modal fade" id="modalPuesto" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalPuesto" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -272,8 +287,7 @@
                                 <form class="text-start">
                                     <div class="mb-3">
                                         <label class="form-label">Departamento de la posicion </label>
-                                        <select class="form-select" id="position" name="position">
-                                            <option value="1">Posición</option>
+                                        <select class="form-select" id="department" name="department">
                                         </select>
                                         <div class="form-text">El departamento de la posicion.</div>
                                     </div>

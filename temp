@@ -1,0 +1,49 @@
+  if (add == 1) {
+    data = {
+      name: $("#name").val(),
+      lastName: $("#lastName").val(),
+      Birthdate: $("#birthDate").val(),
+      phoneNumber: $("#phoneNumber").val(),
+      dpi: $("#dpi").val(),
+      sex: parseInt($("#sex").val()),
+      idPosition: parseInt($("#position").val()),
+      salary: parseInt($("#salary").val()),
+      personalExpenses: parseInt($("#personalExpenses").val()),
+      bonification: parseInt($("#bonification").val())
+    }
+
+    jsonData = JSON.stringify(data, null, 2);
+
+    console.log(jsonData);
+
+    $.ajax({
+      url: uri + 'add',
+      method: "POST",
+      data: jsonData,
+      headers: {
+        "Authorization": `Bearer ${token_sesion}`,
+        'Content-Type': 'application/json'
+      },
+      dataType: 'json',
+      cache: false,
+      beforeSend: function () {
+        $('.ajax-loader').show();
+      },
+      complete: function () {
+        $('.ajax-loader').hide();
+      },
+      success: function (response) {
+        alert("FANTASTICO!");
+        employeeAddModal = document.querySelector('#modal');
+        bootstrap.Modal.getOrCreateInstance(employeeAddModal);
+      },
+      error: function (response) {
+        console.log(response);
+        // if(response.status == 401) {
+        //   window.location.replace("/login.html");
+        // }
+      }
+    });
+  } else {
+    console.log("Campos vacios!");
+  }
